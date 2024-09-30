@@ -89,3 +89,40 @@ functions are first-class entities, can be passed around like other data types
 
 function closures - skip for now
 
+## Methods and Interfaces
+
+Go doesn't have classes, so methods are tagged with struct types using receiver syntax
+
+methods and functions are similar, only difference is receiver.
+
+receiver argument helps to access the type data (like this in Java)
+
+methods can be declared for built-in data types as well if needed
+
+receivers - can be value or pointer (pointer is more common, you can change the underlying data)
+
+interfaces - like in Java has unimplemented method signatures 
+
+no explicit declartion like implements - interesting..
+
+interfaces can be useful when working with generic types
+
+interface.type is similar to instanceof - to identify types during runtime
+
+## Go routines & channels
+
+Multi threaded primitive in Go along with channels
+
+Channels are independent data structure which allow sharing data between go routines (to avoid synchronization of common memory access)
+
+send or receive in channels are blocking
+
+channel buffers - contain more than one value
+    - send blocks when buffer is full
+    - receive blocks when buffer is empty
+
+there is an explicit way to close a channel if needed to let the receiver now. (so that it doesn't have to block itself)
+
+select primitive helps to access one channel at a time (when multiple are ready to run)
+
+default keyword in select - runs code when all channels are blocked

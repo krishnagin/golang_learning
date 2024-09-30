@@ -7,6 +7,11 @@ import (
 )
 
 func main() {
+	// exercises.Exercise1()
+	//learnings()
+}
+
+func learnings() {
 	fmt.Println("starting Go learning Day#1")
 	fmt.Println(math.Sqrt(7))
 	fmt.Println(math.Pi)
@@ -47,16 +52,12 @@ func main() {
 	sumP := &sum
 	fmt.Println(sumP)
 
-	type Over struct {
-		bowler string
-		runs   int
-	}
 	fmt.Println(Over{}) // Empty initialization of data type Over
 	fmt.Println(Over{"starc", 7})
 	o := Over{"starc", 7}
 	fmt.Println(o.bowler)
 	fmt.Println(o.runs) // refer with . the properties of the struct data type
-
+	fmt.Println(o.economy())
 	oP := &o
 	fmt.Println(oP) // this is not printing an address unlike of built-in data types
 	fmt.Println(oP.bowler)
@@ -103,4 +104,14 @@ func WordCount(s string) map[string]int {
 		}
 	}
 	return result
+}
+
+type Over struct {
+	bowler string
+	runs   int
+}
+
+func (o *Over) economy() float64 {
+	o.runs = 10
+	return math.Dim(float64(o.runs), float64(6))
 }
